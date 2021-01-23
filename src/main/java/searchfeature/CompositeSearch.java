@@ -8,7 +8,6 @@ import java.util.List;
 public class CompositeSearch implements SearchInterface {
 
     ArrayList<SearchInterface> searchMethods = new ArrayList<>();
-
     ArrayList<Home> allPassedHomes;
 
 
@@ -17,16 +16,11 @@ public class CompositeSearch implements SearchInterface {
     }
 
     public List<Home> search(List<Home> homeList) {
-
         allPassedHomes = (ArrayList<Home>)homeList;
-
         for (SearchInterface obj : searchMethods)
             allPassedHomes = (ArrayList<Home>)obj.search(allPassedHomes);
-
         return allPassedHomes;
     }
-
-
 
 
 }
